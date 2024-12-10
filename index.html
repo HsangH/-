@@ -45,21 +45,19 @@
 </head>
 <body>
     <header>
-        <h1>부산시 버스 정보 시스템</h1>
+        <h1>부산광역시 버스 정보 시스템</h1>
     </header>
 
     <nav>
         <ul>
             <li><a href="#" data-target="busInfo">버스 정보</a></li>
-            <li><a href="#" data-target="busRoutes">버스 노선</a></li>
-            <li><a href="#" data-target="schedule">버스 시간표</a></li>
-            <li><a href="#" data-target="help">도움말</a></li>
+            <li><a href="#" data-target="busStopSearch">정류소 검색</a></li>
         </ul>
     </nav>
 
     <section id="busInfo" class="active">
         <h2>버스 정보</h2>
-        <form action="GET">
+        <form id="busSearchForm">
             <label for="busNumber">버스 번호:</label>
             <input type="text" id="busNumber" name="busNumber" placeholder="버스 번호 입력">
             <button type="submit">검색</button>
@@ -69,42 +67,29 @@
         </div>
     </section>
 
-    <section id="busRoutes">
-        <h2>버스 노선</h2>
-        <div>
-            <button id="routeButton">버스 노선 보기</button>
-            <div id="routeDetails">
-                <!-- 버스 노선 정보가 여기에 표시됩니다 -->
+    <section id="busStopSearch">
+        <h2>정류소 검색</h2>
+        <div style="display: flex; gap: 20px;">
+            <div style="flex: 1;">
+                <form id="busStopSearchForm">
+                    <label for="busStopName">정류소 명:</label>
+                    <input type="text" id="busStopName" name="busStopName" placeholder="정류소 명 입력">
+                    <button type="submit">정류소 검색</button>
+                </form>
+                <div id="busStopDetails">
+                    <!-- 여기서 정류소 정보가 표로 출력됩니다 -->
+                </div>
+            </div>
+            <div id="busStopMap" style="flex: 1; height: 400px;">
+                <!-- 지도가 표시될 영역 -->
             </div>
         </div>
-    </section>
-
-    <section id="schedule">
-        <h2>버스 시간표</h2>
-        <div>
-            <label for="routeSelect">버스 노선 선택:</label>
-            <select id="routeSelect">
-                <option value="1">노선 1</option>
-                <option value="2">노선 2</option>
-                <option value="3">노선 3</option>
-                <!-- 다른 노선들 추가 가능 -->
-            </select>
-            <button id="scheduleButton">시간표 보기</button>
-        </div>
-        <div id="scheduleDetails">
-            <!-- 시간표 정보가 여기에 표시됩니다 -->
-        </div>
-    </section>
-
-    <section id="help">
-        <h2>도움말</h2>
-        <p>이 시스템은 부산시 버스 정보를 제공하는 웹 어플리케이션입니다. 버스 노선 및 시간표를 확인하고, 버스 도착 시간을 확인할 수 있습니다.</p>
     </section>
 
     <footer>
         <p>&copy; 2024 부산시 버스 정보 시스템</p>
     </footer>
-
-    <script src = "js/scripts.js"></script>
+    <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=7e85a2eb3e8ba07d5f3140aeecc56f7c"></script>
+    <script src="js/scripts.js"></script>
 </body>
 </html>
